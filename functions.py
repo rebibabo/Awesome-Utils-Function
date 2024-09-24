@@ -374,3 +374,21 @@ def run_in_parallel(func: Callable, *args, n: int=8) -> List[Any]:
 
     return results
 
+def remove(s: str, sub: Union[str, List[str]]):
+    '''
+    Usage:
+        Remove a substring or a list of substrings from a string.
+
+    Parameters:
+        :s: the string to remove substrings from.
+        :sub: the substring or a list of substrings to remove.
+
+    Returns:
+        The string with the substrings removed.
+    '''
+    if isinstance(sub, str):
+        return s.replace(sub, '')
+    else:
+        for sub_str in sub:
+            s = s.replace(sub_str, '')
+        return s
